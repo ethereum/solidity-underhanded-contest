@@ -54,8 +54,9 @@
 								<div class="inner">
 									<h2>Theme</h2>
 									<p>This year's theme is upgradable contracts, or, more specifically, upgrade mechanisms.<br><br>
-										In order to fix bugs in smart contracts, it is often necessary to perform upgrades. The problem with upgrades is that there is no feasible automatic mechanism to control that the new code still does what the old code intended to do. Because of that, upgrade mechanisms are often designed such that a single account has the ability to change the code arbitrarily. Since a smart contract in which a single account is authorized to arbitrarily change its implementation defeats the idea of decentralization, we would like to use this contest to find mechanisms that are better suited, be it via an opt-out mechanism, a way to split the contract or whatever else you can come up with.
-										At the same time, this mechanism has to have a flaw or backdoor that is not easy to discover so that in the end, there is still a single account in control, even if it does not seem like it.<br><br>
+										Upgrades are a frequently used practice and are often necessary, e.g. to fix bugs in smart contracts. The problem with upgrades lays in the fact that, most times, users aren’t presented with the upgrade beforehand and no consent is needed from the users to execute it.
+										Upgrade mechanisms are often designed such that a single account has the ability to change the code arbitrarily. However, a smart contract in which a single account is authorised to arbitrarily change its implementation defeats the idea of decentralization.<br><br>
+										Come up with an upgrade mechanism that seems fair and safe (e.g. by implementing an opt-out mechanism or a way to split the contract) but has a flaw or backdoor. The backdoor should be hard to discover and, in the best case, results in a single account having full control, even if it does not seem like it.<br><br>
 										To keep submissions reasonably sized, the contract that is actually to be upgraded should be very small, e.g. an ERC20 contract or a simple registry. Note that the flaw should be in the upgrade mechanism, not in the main contract - you do not have to come up with a reason to actually upgrade the contract, but a little “story” around the hack is always nice, too.
 										</p>
 									</div>
@@ -104,7 +105,7 @@
 								<section>
 									<span class="icon solid major fa-code"></span>
 									<h4>Brief</h4>
-									<p>Design an upgrade mechanism that looks “safe” (with opt-in/opt-out option) but has a backdoor. This means that users should believe that they have control over the upgrade process, either by opting out of the upgrade, splitting the contract or something similar, but in fact, the deployer still has full control. The main contract is not important and should be as small as possible.</p>
+									<p>Design an upgrade mechanism that looks “safe” (with opt-in/opt-out option) but has a backdoor. This means that users should believe that they have control over the upgrade process, either by opting out of the upgrade, splitting the contract or something similar, but in fact, the deployer still has some form of control. The main contract is not important and should be as small as possible.</p>
 								</section>
 								<section>
 									<span class="icon solid major fa-gem"></span>
@@ -132,7 +133,8 @@
 								<section>
 									<span class="icon solid major fa-code-branch"></span>
 									<h4>Solidity Version</h4>
-									<p>Please use <a href="https://github.com/ethereum/solidity/releases">Solidity</a> v0.7.0 or newer.</p>
+									<p>It is highly encouraged to use <a href="https://github.com/ethereum/solidity/releases">Solidity</a> v0.7.0 or newer. If you want to use a version
+									of the 0.6 series, please make sure to not make use of flaws that have been fixed in 0.7. Don't use versions older than 0.6</p>
 								</section>
 							</div>
 						</div>

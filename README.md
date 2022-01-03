@@ -1,2 +1,3 @@
 # solidity-underhanded-contest
-Website for the Solidity Underhanded Contest 2020
+
+Website and resourcses for the Underhanded Solidity Contest.

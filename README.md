@@ -1,3 +1,3 @@
 # solidity-underhanded-contest
 
-Website and resourcses for the Underhanded Solidity Contest.
+Website and resources for the Underhanded Solidity Contest.

@@ -9,7 +9,7 @@
 		<title>Solidity Underhanded Contest</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 		<link rel="icon" href="favicon.ico"> 
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
@@ -37,9 +37,10 @@
 				<!-- Intro -->
 					<section id="intro" class="wrapper style1 fullscreen fade-up">
 						<div class="inner">
-							<h1>Underhanded Solidity Contest 2022</h1>
-							<h3>The Underhanded Solidity Contest is back! <br><br>
-							 The goal of the Underhanded Soldity Contest is to write seemingly innocent and straightforward-looking Solidity code which actually contains malicious behavior or backdoors.<br><br></h3>
+							<h1>Solidity Underhanded Contest</h1>
+							<h3>The Solidity Underhanded Contest 2020 is over! <br><br>
+							 Read about the winning submissions in the <a href="https://blog.soliditylang.org/2020/12/03/solidity-underhanded-contest-winners/">2020 winner announcement</a> or check out all submissions in <a href="https://github.com/ethereum/solidity-underhanded-contest/tree/master/submissions_2020">here</a>.<br><br>
+							 The goal of the Soldity Underhanded Contest is to write innocent-looking Solidity code, which pretends to be clear and straightforward, but actually contains malicious behavior or backdoors.</h3><br>
 							<ul class="actions">
 								<li><a href="#one" class="button scrolly">Learn more</a></li>
 							</ul>
@@ -49,49 +50,48 @@
 				<!-- One -->
 					<section id="one" class="wrapper style2 spotlights">
 						<section>
-							<a class="image"><img src="images/illusion1.png" alt="Cubes Illusion" data-position="center center" /></a>
+							<a class="image"><img src="images/cube_lines.png" alt="Cubes Illusion" data-position="center center" /></a>
 							<div class="content">
 								<div class="inner">
 									<h2>Theme</h2>
-									<p>In this year, we would like you to build a simple decentralized exchange where people can trade their hard-earned NFTs or DAO participation tokens.</p>
-									<p>The rules of decentralized exchanges (at least the simple ones) are very easy and nothing can go wrong there, right?</p>
-									<p>Build a decentralized exchange either with an automated market maker or a match-making mechanism where trades do not really work as expected.
-									It is also fine to add a flaw to a token implementation you provide instead of to the exchange itself.</p>
-									<p>Please remember to stick to &quot;simplicity is key&quot;! The shorter the submission is, the better. Leave out ERC20 functions that are not needed for your submission, for example.</p>
-									<p>Bonus points if you provide a short story and explain the setting around your exchange in the readme file.
-									Please also provide a crisp explanation about the flaw built into your submission, but put it into a different file named
-									<code>rugpull.txt</code> or <code>spoiler.txt</code>, so judges are able to first check the submission with an unbiased look.</p>
+									<p>This year's theme is upgradable contracts, or, more specifically, upgrade mechanisms.<br><br>
+										Upgrades are a frequently used practice and are often necessary, e.g. to fix bugs in smart contracts. The problem with upgrades lays in the fact that, most times, users aren’t presented with the upgrade beforehand and no consent is needed from the users to execute it.
+										Upgrade mechanisms are often designed such that a single account has the ability to change the code arbitrarily. However, a smart contract in which a single account is authorised to arbitrarily change its implementation defeats the idea of decentralization.<br><br>
+										Come up with an upgrade mechanism that seems fair and safe (e.g. by implementing an opt-out mechanism or a way to split the contract) but has a flaw or backdoor. The backdoor should be hard to discover and, in the best case, results in a single account having full control, even if it does not seem like it.<br><br>
+										To keep submissions reasonably sized, the contract that is actually to be upgraded should be very small, e.g. an ERC20 contract or a simple registry. Note that the flaw should be in the upgrade mechanism, not in the main contract - you do not have to come up with a reason to actually upgrade the contract, but a little “story” around the hack is always nice, too.
+										</p>
 									</div>
 							</div>
 						</section>
 						<section>
-							<a class="image"><img src="images/illusion2.png" alt="Triangle Illusion" data-position="center center" /></a>
+							<a class="image"><img src="images/triangle_lines.png" alt="Triangle Illusion" data-position="center center" /></a>
 							<div class="content">
 								<div class="inner">
 									<h2>Judges</h2>
 									<p>Judges are presented with anonymised submissions. The submissions will be assessed by:</p>
 										<ul>
-											<li><a href="https://twitter.com/alexberegszaszi">Alex Beregszaszi</a>, Solidity Co-Lead at Ethereum Foundation.</li>
-											<li>Duncan Townsend, CTO at Immunefi.</li>
-											<li><a href="https://twitter.com/gakonst">Georgios Konstantopoulos</a>, Research Partner and CTO at Paradigm.</li>
-											<li><a href="https://twitter.com/GNSPS">Gonçalo Sá</a>, Security Engineer at ConsenSys Diligence.</li>
-											<li><a href="https://twitter.com/_hrkrshnn">Harikrishnan Mulackal</a>, C++ Engineer Solidity at Ethereum Foundation.</li>
-											<li><a href="https://twitter.com/Montyly">Josselin Feist</a>, Principal Security Engineer at Trail of Bits.</li>
-											<li>Matthias Egli, CTO at ChainSecurity.</li>
-											<li><a href="https://twitter.com/samczsun">samczsun</a>, Research Partner at Paradigm.</li>
+											<li>Alex Beregszaszi, Solidity Co-Lead at Ethereum Foundation.</li>
+											<li>Austin Williams, Security Researcher at OpenZeppelin.</li>
+											<li>Christian Reitwiessner, Solidity Co-Lead at Ethereum Foundation.</li>
+											<li>Gonçalo Sá, Security Engineer at ConsenSys Diligence.</li>
 											<li>Stefan Beyer, Lead Auditor at Solidified.</li>
 										</ul>
 								</div>
 							</div>
 						</section>
 						<section>
-							<a class="image"><img src="images/illusion3.png" alt="Zeta Illusion" data-position="center center" /></a>
+							<a class="image"><img src="images/zet_lines.png" alt="Zeta Illusion" data-position="center center" /></a>
 							<div class="content">
 								<div class="inner">
 									<h2>Prizes</h2>
-									<p>The top3 submissions will receive a ticket to the <a href="https://devconnect.org">Devconnect Coworking</a> and the opportunity to present their exploit at the <a href="https://summit.soliditylang.org">Solidity Summit 2022</a> in Amsterdam.</p>
-									<p>The top3 winners of the Underhanded Solidity Contest will also be awarded points for the upcoming <a href="https://ctf.paradigm.xyz/">Paradigm CFT 2022</a>.</p>
-									<p>Furthermore, the winners and all qualified submissions will receive a custom NFT and will be added to the <a href="">Underhanded Solidity Board of Fame</a>.</p>
+									<p>The prizes are sponsored by several Ethereum-related security projects as well as the Ethereum Foundation. Each winner, starting with the 1st place, can choose a prize from the pool.</p>
+									<ul>
+										<li>1x Ticket to <a href="https://devcon.ethereum.org">Devcon6</a>.</li>
+										<li>1x 1-year <a href="https://mythx.io/plans/">MythX Pro Plan</a> / 1x 1-year <a href="https://mythx.io/plans/">MythX Dev Plan.</a></li>
+										<li>1x Automatic acceptance into <a href="https://solidified.io/">Solidified</a> auditor pool & a paid audit with Solidified.</li>
+										<li>1x 1-year subscription to <a href="https://openzeppelin.com/defender/">OpenZeppelin Defender</a>.</li>
+									</ul>
+									<p>Furthermore, the winners and all qualified submissions will receive a custom NFT.</p>
 								</div>
 							</div>
 						</section>
@@ -106,7 +106,7 @@
 								<section>
 									<span class="icon solid major fa-code"></span>
 									<h4>Brief</h4>
-									<p>Build a decentralized exchange that looks fair, but can be &quot;manipulated&quot;. This can be either by it leaking money, a specific account being able to withdraw all money or something else you can think of. The flaw can also be in a specific token implementation you provide instead of the exchange. The only hard requirement is that the flaw is hidden.</p>
+									<p>Design an upgrade mechanism that looks “safe” (with opt-in/opt-out option) but has a backdoor. This means that users should believe that they have control over the upgrade process, either by opting out of the upgrade, splitting the contract or something similar, but in fact, the deployer still has some form of control. The main contract is not important and should be as small as possible.</p>
 								</section>
 								<section>
 									<span class="icon solid major fa-gem"></span>
@@ -116,15 +116,15 @@
 								<section>
 									<span class="icon solid major fa-save"></span>
 									<h4>Simplicity is key!</h4>
-									<p>Submissions that are short and clean will be scored higher than those that are lengthy and complicated. It's easy to hide a vulnerability in complex and poorly written code; far harder to hide it in clean and simple code.</p>
+									<p>Submissions that are short and clean will be scored higher than those that are lengthy and complicated. It’s easy to hide a vulnerability in complex and poorly written code; far harder to hide it in clean and simple code.</p>
 								</section>
 								<section>
 									<span class="icon solid major fa-clock"></span>
 									<h4>Timeline</h4>
-									<p>Make sure to send submissions before the end of the deadline!<br><br>
-										+ Submissions open on 2022-02-09.<br>
-										+ Submissions close on 2022-03-16.<br><br>
-										Winners will be announced in time before <a href="https://devconnect.org">Devconnect Amsterdam</a> in April.</p>
+									<p>Make sure to send submissions before the end of the deadline.<br><br>
+										Submissions open on 2020-10-01.<br>
+										Submissions close on 2020-10-31.<br>
+										Winners will be announced by the end of November.</p>
 								</section>
 								<section>
 									<span class="icon solid major fa-lock-open"></span>
@@ -134,7 +134,8 @@
 								<section>
 									<span class="icon solid major fa-code-branch"></span>
 									<h4>Solidity Version</h4>
-									<p>Please use <a href="https://github.com/ethereum/solidity/releases">Solidity v0.8.0</a> or higher.</p>
+									<p>It is highly encouraged to use <a href="https://github.com/ethereum/solidity/releases">Solidity</a> v0.7.0 or newer. If you want to use a version
+									of the 0.6 series, please make sure to not make use of flaws that have been fixed in 0.7. Don't use versions older than 0.6</p>
 								</section>
 							</div>
 						</div>
@@ -145,8 +146,8 @@
 							<section>
 								<div class="content">
 									<div class="inner">
-										<h2>Submission & Participation</h2>
-										<p>Please email your submissions before the deadline [2022-03-16] to <a href="mailto:sol_underhanded@ethereum.org">sol_underhanded@ethereum.org</a>. Entries should consist of a ZIP file containing a README describing your submission and how it works [spoilers into a different file!], and one or more Solidity files.<br><br>
+										<h2>Submission & Participation 📩</h2>
+										<p>Please email your submissions before the deadline (2020-10-31) to <a href="mailto:sol_underhanded@ethereum.org">sol_underhanded@ethereum.org</a>. Entries should consist of a ZIP file containing a README describing your submission and how it works (spoilers included), and one or more Solidity files.<br><br>
 										Each person can only enter one submission. If you want to make a team submission, nominate a single person to submit on your team’s behalf. Since entries will be forwarded to the judges and assessed anonymously, please do not include identifying information in the ZIP file.</p>
 										<h4>Who can participate?</h4>
 										<p>Anybody over the age of 18 can participate. Judges and organizers of this contest are excluded from participation. If your jurisdiction requires you to pay taxes on prizes or imposes other restrictions, please make sure to adhere to those. If taking part in such contests is prohibited in your area please adhere to your local laws.</p>
@@ -155,8 +156,8 @@
 							<section>
 								<div class="content">
 									<div class="inner">
-										<h2>About</h2>
-										<p>Inspired by the <a href="http://www.underhanded-c.org/">Underhanded C Contest</a> and the first <a href="https://u.solidity.cc/">Underhanded Solidity Contest</a>, organized in 2017 by Nick Johnson, in 2020 the Solidity team decided that it is time for a <a href="https://underhanded.soliditylang.org/2020">revival</a>. We hope this contest will get the traction it deserves in which case we could consider turning it into a recurring event.<br><br>
+										<h2>About 📖</h2>
+										<p>Inspired by the <a href="http://www.underhanded-c.org/">Underhanded C Contest</a> and the first <a href="https://u.solidity.cc/">Underhanded Solidity Contest</a>, organized in 2017 by Nick Johnson, in 2020 the Solidity team decided that it is time for a revival. We hope this contest will get the traction it deserves in which case we could consider turning it into a recurring event.<br><br>
 										The Solidity Underhanded Contest aims to:
 										<ul>
 											<li>Raise awareness about smart contract security.</li>
@@ -166,16 +167,15 @@
 											<li>Establish new best practices for secure smart contract development.</li>
 										</ul>
 									A big thank you to <a href="https://diligence.consensys.net/">ConsenSys Diligence</a>, <a href="https://solidified.io/">Solidified</a>, <a href="https://openzeppelin.com/">OpenZeppelin</a>, and the <a href="https://ethereum.foundation/">Ethereum Foundation</a> for contributing prizes, supporting with judging and all their input!
-									
-								</p>
+									</p>
 									</div>
 							</section>					
 			
 				<!-- Four -->
 					<section id="four" class="wrapper style1 fade-up">
 						<div class="inner">
-							<h2>Contact</h2>
-							<p>You have questions, want to get involved by sponsoring a prize, help with judging or propose a theme for the next Underhanded Solidity Contest? Then feel free to get in touch!</p>
+							<h2>Get in touch 📮</h2>
+							<p>You have questions, want to get involved by sponsoring a prize, help with judging or propose a theme for the next Solidity Underhanded Contest? Then feel free to reach out to us!</p>
 								<section>
 									<ul class="contact">
 										<li>
@@ -186,11 +186,9 @@
 											<h3>Social</h3>
 											<ul class="icons">
 												<li><a href="https://twitter.com/solidity_lang" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-												<li><a href="https://fosstodon.org/@solidity" class="icon brands fa-mastodon"><span class="label">Mastodon</span></a></li>
 												<li><a href="https://github.com/ethereum/solidity" class="icon brands fa-github"><span class="label">Github</span></a></li>
 												<li><a href="https://gitter.im/ethereum/solidity-dev" class="icon brands fa-gitter"><span class="label">Gitter</span></a></li>
-												<li><a href="https://matrix.to/#/#ethereum_solidity:gitter.im" class="icon fas fa-comments"><span class="label">Matrix</span></a></li>
-												<li><a href="https://soliditylang.org/" class="icon solid fa-globe"><span class="label">Web</span></a></li>
+												<li><a href="https://blog.soliditylang.org/" class="icon solid fa-book-open"><span class="label">Blog</span></a></li>
 											</ul>
 										</li>
 									</ul>
@@ -205,7 +203,7 @@
 			<footer id="footer" class="wrapper style1-alt">
 				<div class="inner">
 					<ul class="menu">
-						<li>Made by the Solidity Team - 2022</li><li>Hyperspace Template by <a href="http://html5up.net">HTML5 UP</a></li><li>Pattern by Shadows of love from NounProject.com</li>
+						<li>Made by the Solidity Team - 2020</li><li>Hyperspace Template by <a href="http://html5up.net">HTML5 UP</a></li><li>illusions by GREY Perspective from the Noun Project</li>
 					</ul>
 				</div>
 			</footer>

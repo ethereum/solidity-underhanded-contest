@@ -116,7 +116,7 @@ input, select, textarea {
 
 	body, input, select, textarea {
 		color:#111111;
-		font-family: 'Share Tech Mono', monospace;
+		font-family: 'Fira Code', monospace;
 		font-size: 16.5pt;
 		font-weight: normal;
 		line-height: 1.75;
@@ -158,7 +158,7 @@ input, select, textarea {
 
 		a:hover {
 			border-bottom-color: transparent;
-			color: #ffffff;
+			color: #7575FF;
 		}
 
 	strong, b {
@@ -2544,9 +2544,9 @@ input, select, textarea {
 			width: 2.5em;
 			height: 2.5em;
 			display: block;
-			background: #111111;
+			background: #7575FF;
 			border-radius: 100%;
-			color: #FF124f;
+			color: #111111;
 			text-align: center;
 			line-height: 2.5em;
 			margin: 0 0 1.3em 0;
@@ -2557,27 +2557,27 @@ input, select, textarea {
 			}
 
 				.wrapper.style1 .icon.major:before {
-					color: #FF124f;
+					color: #111111;
 				}
 
 				.wrapper.style1-alt .icon.major:before {
-					color: #FF124f;
+					color: #111111;
 				}
 
 				.wrapper.style2 .icon.major:before {
-					color: #FF124f;
+					color: #111111;
 				}
 
 				.wrapper.style2-alt .icon.major:before {
-					color: #FF124f;
+					color: #111111;
 				}
 
 				.wrapper.style3 .icon.major:before {
-					color: #FF124f;
+					color: #111111;
 				}
 
 				.wrapper.style3-alt .icon.major:before {
-					color: #FF124f;
+					color: #111111;
 				}
 
 /* Image */
@@ -3043,7 +3043,7 @@ input, select, textarea {
 				-webkit-transition: opacity 1s ease;
 				-ms-transition: opacity 1s ease;
 				transition: opacity 1s ease;
-				background: #FF124f;
+				background: #7575FF;
 				content: '';
 				display: block;
 				height: 100%;
@@ -3273,7 +3273,7 @@ input, select, textarea {
 		}
 
 		.wrapper.style2-alt {
-			background-color: #FF124f;
+			background-color: #7575FF;
 		}
 
 		.wrapper.style3 {
@@ -3786,10 +3786,10 @@ input, select, textarea {
 			}
 
 			#sidebar nav a:after {
-				background-image: -moz-linear-gradient(to right, #9d9d9d, #FF124f);
-				background-image: -webkit-linear-gradient(to right, #9d9d9d, #FF124f);
-				background-image: -ms-linear-gradient(to right, #9d9d9d, #FF124f);
-				background-image: linear-gradient(to right, #9d9d9d, #FF124f);
+				background-image: -moz-linear-gradient(to right, #9d9d9d, #7575FF);
+				background-image: -webkit-linear-gradient(to right, #9d9d9d, #7575FF);
+				background-image: -ms-linear-gradient(to right, #9d9d9d, #7575FF);
+				background-image: linear-gradient(to right, #9d9d9d, #7575FF);
 				-moz-transition: max-width 0.2s ease;
 				-webkit-transition: max-width 0.2s ease;
 				-ms-transition: max-width 0.2s ease;
@@ -3802,7 +3802,7 @@ input, select, textarea {
 			}
 
 			#sidebar nav a.active {
-				color: #FF124f;
+				color: #7575FF;
 			}
 
 				#sidebar nav a.active:after {
@@ -3878,7 +3878,7 @@ input, select, textarea {
 
 						#sidebar nav a:after {
 							background-image: none;
-							background-color: #b74e91;
+							background-color: #7575FF;
 						}
 
 		}

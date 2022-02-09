@@ -303,9 +303,10 @@ input, select, textarea {
 	}
 
 	code {
-		background: rgba(255, 255, 255, 0.05);
-		border-radius: 0.25em;
-		border: solid 1px rgba(255, 255, 255, 0.15);
+		color: #111111;
+		background: #0000;
+		border-radius: 0.3em;
+		border: solid 0.5px #111111;
 		font-family: "Courier New", monospace;
 		font-size: 0.9em;
 		margin: 0 0.25em;

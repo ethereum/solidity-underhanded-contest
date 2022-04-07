@@ -1,0 +1,12 @@
+## Spoiler
+
+Introducing WETH trades with the current try-catch pattern first used for alETH<->wstETH trades introduces a vulnerability that allows an attacker to fully drain the DEX of all supported asset balances. The issue relies on the fact that the WETH contract does define a `safeTransferFrom` function, and has a non-reverting fallback function, i.e. WETH has a phantom `safeTransferFrom`. This antipattern was recently discovered by Dedaub who first found these 'phantom function' no-ops in the Multichain project (https://media.dedaub.com/phantom-functions-and-the-billion-dollar-no-op-c56f062ae49f). 
+
+Trades originating from alETH or wstETH work as intended since the try-statement `safeTransferFrom` call fails, and the catch-statement `transferFrom` call pulls the user's tokens if the allowance was made available. Any trade originating with WETH passes through the try-catch statement, since the try-statement `safeTransferFrom` call goes to the WETH fallback function and does not revert, so the functional `transferFrom` in the catch-statement does not get called. One example of how an attacker can drain the DEX balances is shown in the following 4 trades, assuming equal balances of all assets:
+
+1) Swap all WETH -> wstETH to drain the wstETH balance
+2) Swap all WETH -> alETH  to drain the alETH balance
+3) Swap all alETH -> WETH to swap for the WETH balance
+4) Swap all WETH -> alETH to drain the alETH balance supplied in step (3)
+
+Steps to mitigate this issue includes never building contract interfaces by hand or importing them without strict validation. In this case, `safeTransferFrom` should never have been in the contract interface since it's usually used from the SafeERC20 library to wrap `transferFrom` calls. Moreover, imported contract interfaces should be manually inspected to match the function names and parameters of the target contract. Lastly, and most importantly, additional validation on the state changes from external contract calls should be implemented. For example, checking if the contract received the correct number tokens after the `safeTransferFrom` call would have prevented this issue. 

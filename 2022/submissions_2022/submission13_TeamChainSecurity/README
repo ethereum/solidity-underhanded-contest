@@ -1,0 +1,17 @@
+UniswapV2 but better
+--------------------
+
+UniswapV2 is great. We made it even better:
+
+- Overall reduced gas consumption
+  - Actual DEX only uses a single storage slot
+  - For single-pair swaps the Router is integrated with the pair, hence you don't need to interact with the Router and save significantly thanks to EIP-2929.
+  - Doesn't require approving the LP token before the burn
+- Allows unbalanced addition of liquidity (who has tokens in perfect ratio?)
+- LP Minting fees (as unbalaned minting is allowed) to prevent Just-in-Time liquidity
+- New Error codes to reduce code size
+- Streamlined the code by removing unnecessary checks
+- Removed rarely used oracle
+- Restricted to reasonable subset of ERC20 to simplify code
+- No extra fees EVER
+ 

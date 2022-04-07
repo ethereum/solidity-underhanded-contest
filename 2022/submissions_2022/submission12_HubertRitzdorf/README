@@ -1,0 +1,15 @@
+SuperAuction
+------------
+
+This is a simple NFT Auction. An NFT can be bought for ETH. Whenever a new highest bidder comes along the bid is split and sent to the previously highest bidder and their predecessor. If no bid has been made for a day, the auction ends. This simple auction has many great advantages:
+- Almost everyone benefits: Even if you get outbid, you will receive a higher amount than you contributed.
+- Only exception is the runner-up. Hence, nobody want's to be runner-up and the bidding keeps going!
+
+This contract is designed for bots to outbid each other! Hence, the previous bidders receive callbacks with large gas allowances of 6 million each. That way they can directly counter a bid. We assume that gas is cheap, and so everyone is fine paying for these allowances and that the block gas limit is 30 million. Hence, two times 6 million is comfortably below the limit.
+
+When funds are paid back the procedure is:
+1. Try to call "youHaveBeenOutbid" function for previous bidder
+2. Try to send ETH
+3. If the previous bidder is unable to receive ETH, the ETH is donated.
+
+

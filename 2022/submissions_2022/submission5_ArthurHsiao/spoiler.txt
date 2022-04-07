@@ -1,0 +1,12 @@
+Spoiler for Decentralized NFT Exchange
+
+Hacker can steal all NFTs on sale without paying any Ether using `Cross-functions Reentrance`.
+
+Here is the attack process:
+1. Hacker can buy a NFT with a malicious contract that contains `onERC721Received` and `receive` functions.
+2. At the moment hacker buy a NFT, exchange will tranfer it to malicious contract, and then call `onERC721Received` on malicious contract.
+3. What `onERC721Received` on malicious contract does is to relist the NFT. This action on exchage contract overwrites the seller of this NFT to malicious contract.
+4. As a result of overwrites changes of seller, the money hacker pays will return back to malicious contract.
+5. After money return back to malicious contract, `receive` function will run. And hacker can repeat step 2 ~ 5 to steal the next NFT.
+
+Because both `buyItem` and `listItem` functions on exchange contract update storage state of item, hacker is able to manipulate it by cross-functions reentrance. Even developers follow the Checks-Effects-Interactions pattern, this flaw is still hard to find in large codebase. Solidity developers should aware every functions where storage variables are used and make sure they don't affect each others.

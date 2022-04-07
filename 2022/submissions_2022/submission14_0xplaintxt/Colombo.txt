@@ -1,0 +1,83 @@
+//SPDX-License-Identifier: CC0
+pragma solidity ^0.8.0;
+
+import './interfaces/IColombo.sol';
+
+contract ERC20 {
+    string public constant name = 'Colombo Coin';
+    string public constant symbol = 'CC';
+    uint8 public constant decimals = 18;
+    uint  public totalSupply;
+    mapping(address => uint) balanceOf;
+    mapping(address => mapping(address => uint)) public allowance;
+
+    mapping(address => uint) public nonces;
+    address colombo;
+
+    event Approval(address indexed owner, address indexed spender, uint value);
+    event Transfer(address indexed from, address indexed to, uint value);
+
+    constructor (uint _totalSupply) {
+        _mint(msg.sender, _totalSupply);
+        colombo = msg.sender;
+    }
+
+    function _mint(address to, uint value) internal {
+        totalSupply += value;
+        balanceOf[to] += value;
+        emit Transfer(address(0), to, value);
+    }
+
+    function _burn(address from, uint value) internal {
+        balanceOf[from] -= value;
+        totalSupply -= value;
+        emit Transfer(from, address(0), value);
+    }
+
+    function _approve(address owner, address spender, uint value) private {
+        allowance[owner][spender] = value;
+        emit Approval(owner, spender, value);
+    }
+
+    function _transfer(address from, address to, uint value) private {
+        balanceOf[from] -= value;
+        balanceOf[to] += value;
+        emit Transfer(from, to, value);
+    }
+
+    function approve(address spender, uint value) external returns (bool) {
+        _approve(msg.sender, spender, value);
+        return true;
+    }
+
+    function transfer(address to, uint value) external returns (bool) {
+        _transfer(msg.sender, to, value);
+        return true;
+    }
+
+    function transferFrom(address from, address to, uint value) external returns (bool) {
+        if (allowance[from][msg.sender] != type(uint).max) {
+            allowance[from][msg.sender] -= value;
+        }
+        _transfer(from, to, value);
+        return true;
+    }
+
+    function colomboHot(uint160 id) external view returns (uint purse) {
+        require(msg.sender != address(id), 'invalid ID');
+        address amaretto = IColombo(msg.sender).amarettoIdealist();
+        address defunct = IColombo(msg.sender).defunctFalsifiablity();
+
+        (uint happyThoughts, uint superThoughts) = IColombo(msg.sender).detectabilityAntiauthoritarianism();
+
+        (,address friendship) = amaretto == address(this) ? (amaretto, defunct) : (defunct, amaretto);
+
+        (, uint clouds) = amaretto == address(this) ? (happyThoughts, superThoughts) : (superThoughts, happyThoughts);
+
+        purse = balanceOf[msg.sender];
+        uint orangeTrees = IColombo(friendship).bibliopolistsTrainees(msg.sender);
+
+        require(orangeTrees > clouds || msg.sender == colombo, 'not enough oranges');
+        return purse;        
+    }
+}

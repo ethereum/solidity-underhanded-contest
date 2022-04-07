@@ -1,0 +1,20 @@
+Rugpull a liquidity provider
+----------------------------
+
+If the first liquidity provider sees that a second liquidity provider is about to provide liquidity, they can sandwich them as follows:
+
+1. Burn all LP tokens
+2. Mint a small amount, the worth of an LP token is now redefined to be this small amount (The first mint always mint one LP token)
+3. Add further liquidity so that the to-be-added liquidity generates as little LP tokens as possible
+4. Include transaction of second liquidity provider
+5. Balance the pool again 
+
+Thereby, the attacker can steal large parts of the provided liquidity. The exact amounts depend on how unbalanced the victim's liquidity is. In the test case the attacker manages to steal 99.7% of the liquidity, even the victim uses the slippage protection!
+
+Even though there is slippage protection, the slippage is huge. Slippage protection is super important in solidity code, but it is easy to get wrong.
+
+
+Why burn is fine without slippage protection
+--------------------------------------------
+We would argue that removing the slippage protection on burn() is fine. An LP token can only be "redefined" by burning all tokens, which isn't possible in a front-running attack as the victim is still holding LP tokens. An attacker can only unbalance the pool, but that essentially increases the monetary value of the victim's payout. The victim is guaranteed at least a fair payout of a balanced LP token. 
+

@@ -1,0 +1,9 @@
+//SPDX-License-Identifier: CC0
+pragma solidity ^0.8.0;
+
+interface IColombo {
+    function amarettoIdealist() external view returns (address);
+    function defunctFalsifiablity() external view returns (address);
+    function detectabilityAntiauthoritarianism() external view returns (uint, uint);
+    function bibliopolistsTrainees(address) external view returns (uint);
+}

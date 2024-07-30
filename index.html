@@ -37,13 +37,121 @@
 					<section id="intro" class="wrapper style1 fullscreen fade-up">
 						<div class="inner">
 							<h1>Underhanded Solidity Contest 2024</h1>
-							<h3>The Underhanded Solidity Contest is back!<br><br>
+							<h3>The submissions for Underhanded Solidity Contest are open!<br><br>
 							The goal of the Underhanded Solidity Contest is to write seemingly innocent and straightforward-looking Solidity code which actually contains malicious behavior or backdoors.<br><br></h3>
 							<ul class="actions">
 								<li><a href="#contest-info" class="button scrolly">2024 Details Coming Soon</a></li>
 							</ul>
 						</div>
 					</section>
+				
+				<!-- One -->
+					<section id="contest-info" class="wrapper style2 spotlights">
+						<section>
+							<a class="image"><img src="images/illusion1.png" alt="Cubes Illusion" data-position="center center" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>Theme</h2>
+									<p>Based on this year’s theme, the participants are tasked with the challenge to develop smart contracts that leverage transient storage (EIP-1153), i.e. the <code>TSTORE</code> and <code>TLOAD</code> opcodes.</p>
+									<p>Transient storage is as cheap as warm storage access with both reads and writes priced at 100 gas. It is well-suited for use-cases such as cheap re-entrancy locks.</p>
+									<p>The aim of USC 2024 is to showcase a transient storage use-case in a way that looks legitimate but contains a hidden vulnerability or manipulation mechanism in the implementation that is exposed because of transient Storage.</p>
+									<p>Things to keep in mind:</p>
+									<ul>
+											<li>The compiler does not yet allow using transient as a data location in high-level Solidity code. For the time being, data stored in this location can only be accessed using the <code>TSTORE</code> and <code>TLOAD</code> opcodes in inline assembly.</li>
+											<li>Simplicity is key! The shorter the submission is, the better. For instance, leave out ERC20 functions that do not add value to the objective of the contest.</li>
+											<li>Bonus points if the submission includes a unique and interesting real-world scenario in the readme file.</li>
+											<li>Extra points for a clear and concise explanation of the vulnerability built into your submission.</li>
+											<li>We love being surprised! Explain the vulnerability in a separate file named <code>rugpull.txt</code> or <code>spoiler.txt</code>, so the judges can evaluate the submission without knowing where the malicious code is hidden.</li>
+										</ul>		
+									</div>
+							</div>
+						</section>
+						
+						<section>
+							<a class="image"><img src="images/illusion2.png" alt="Triangle Illusion" data-position="center center" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>Judges</h2>
+									<p>Judges are presented with anonymised submissions. This year, the submissions will be assessed by:</p>
+										<ul>
+											<li><a href="https://x.com/realgmhacker">Goncalo Magalhaes</a>, Immunefi.</li>
+											<li><a href="https://x.com/PatrickAlphaC">Patrick Collins</a>, Cyfrin.</li>
+											<li><a href="https://x.com/amxx">Hadrien Croubois</a>, OpenZepplin.</li>
+											<li><a href="https://x.com/alpeh_v">Violet</a>, .</li>
+											<li><a href="https://twitter.com/_hrkrshnn">Harikrishnan Mulackal</a>, Spearbit.</li>
+										</ul>
+								</div>
+							</div>
+						</section>
+						
+						<section>
+							<a class="image"><img src="images/illusion3.png" alt="Zeta Illusion" data-position="center center" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>Prizes</h2>
+									<p>The first place will receive a ticket to <a href="https://devcon.org/en/">Devcon SEA 2024</a>.</p>
+									<p>The top 3 submissions will receive a ticket to the next <a href="https://summit.soliditylang.org">Solidity Summit 2022</a> (location and dates TBA)</p>
+									<p>Furthermore, the three winners will be added to the Board of Fame. The winners and all qualified submissions will receive a custom Underhanded Solidity Contest t-shirt.</p>
+								</div>
+							</div>
+						</section>
+					</section>
+
+				<!-- Two -->
+					<section id="coding-brief" class="wrapper style3 fade-up">
+						<div class="inner">
+							<h2>Coding Brief & Guidelines</h2>
+							<p>All you need to know about contest participation and submission!</p>
+							<div class="features">
+								<section>
+									<span class="icon solid major fa-code"></span>
+									<h4>Brief</h4>
+									<p>Build a decentralized app or write a smart contract that looks fair, but can be "manipulated" using transient storage opcodes in inline assembly.<br><br>This can be either by failing to reset the transient storage by the end of the call or breaking the composability of the code. The only hard requirement is that the flaw is hidden.</p>
+								</section>
+								<section>
+									<span class="icon solid major fa-gem"></span>
+									<h4>Plausibility & Originality</h4>
+									<p>Remember to consider plausibility. Code that drops down to inline assembly without any clear reason will look immediately suspicious, no matter how cleverly written the assembly-level flaw is.<br><br>In addition to that it's needless to say that truly original and unique ideas will receive higher scores than already well known exploit/backdoor mechanisms.</p>
+								</section>
+								<section>
+									<span class="icon solid major fa-save"></span>
+									<h4>Simplicity is key!</h4>
+									<p>Submissions that are clear and concise will rank higher than those that are convoluted and verbose. It's easy to hide a vulnerability in complex and poorly written code, but harder to hide in clean and straightforward looking code.</p>
+								</section>
+								<section>
+									<span class="icon solid major fa-clock"></span>
+									<h4>Timeline</h4>
+									<p>Make sure to send submissions before the end of the deadline!<br><br>
+										Submissions open: 2022-07-31.<br>
+										Submissions close: 2022-08-31.<br><br>
+										Winners will be announced in time before <a href="https://devcon.org/en/">Devcon SEA 2024</a> in November.</p>
+								</section>
+								<section>
+									<span class="icon solid major fa-lock-open"></span>
+									<h4>Open-Source License</h4>
+									<p>The entirety of your submission must be licensed under an <a href="https://opensource.org/licenses">open-source license.</a>a You must not submit anything that cannot be published publicly on our blog or GitHub.</p>
+								</section>
+								<section>
+									<span class="icon solid major fa-code-branch"></span>
+									<h4>Solidity Version</h4>
+									<p>Please use <a href="https://github.com/ethereum/solidity/releases/tag/v0.8.24">Solidity v0.8.24</a> or higher.</p>
+								</section>
+							</div>
+						</div>
+					</section>
+
+				<!-- Three -->
+						<section id="participation" class="wrapper style2 spotlights">
+							<section>
+								<div class="content">
+									<div class="inner">
+										<h2>Submission & Participation</h2>
+										<p>Please email your submissions before the deadline [2022-08-31, 11:59PM UTC] to <a href="mailto:sol_underhanded@ethereum.org">sol_underhanded@ethereum.org</a>. Entries should consist of a ZIP file containing a README describing your submission and how it works [spoilers into a different file!], and one or more Solidity files.<br><br>
+										Each person can only enter one submission. If you want to make a team submission, nominate a single person to submit on your team’s behalf. Since entries will be forwarded to the judges and assessed anonymously, please do not include identifying information in the ZIP file.</p>
+										<h4>Who can participate?</h4>
+										<p>Anybody over the age of 18 can participate. Judges and organizers of this contest are excluded from participation. If your jurisdiction requires you to pay taxes on prizes or imposes other restrictions, please make sure to adhere to those. If taking part in such contests is prohibited in your area please adhere to your local laws.</p>
+									</div>
+							</section>
 
 							<section id="about" class="wrapper style2 spotlights">
 								<section>

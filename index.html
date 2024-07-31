@@ -54,7 +54,8 @@
 									<h2>Theme</h2>
 									<p>Based on this year’s theme, the participants are tasked with the challenge to develop smart contracts that leverage transient storage (EIP-1153), i.e. the <code>TSTORE</code> and <code>TLOAD</code> opcodes.</p>
 									<p>Transient storage is as cheap as warm storage access with both reads and writes priced at 100 gas. It is well-suited for use-cases such as cheap re-entrancy locks.</p>
-									<p>The aim of USC 2024 is to showcase a transient storage use-case in a way that looks legitimate but contains a hidden vulnerability or manipulation mechanism in the implementation that is exposed because of transient Storage.</p>
+									<p>The aim of USC 2024 is to showcase a transient storage use-case in a way that looks legitimate but contains a hidden vulnerability or manipulation mechanism in the implementation that is exposed because of transient storage.</p>
+
 									<p>Things to keep in mind:</p>
 									<ul>
 											<li>The compiler does not yet allow using transient as a data location in high-level Solidity code. For the time being, data stored in this location can only be accessed using the <code>TSTORE</code> and <code>TLOAD</code> opcodes in inline assembly.</li>

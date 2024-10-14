@@ -1,0 +1,14 @@
+This is the spoilor for contract "token.sol"
+
+The function tempStoreKeyValue() allows writing to any transient storage location, which normally would not be a (big) problem.
+However an issue occurs when the chain doesn't support transient storage and the fallback option is used to use normal storage.
+
+Then the function tempStoreKeyValue() allows writing to any storage location.
+This is bad for most contracts but especially for proxy based contracts because the implementation address can be overwritten.
+
+Function getSlot() uses the same algorithm as the OpenZeppelin TransparentUpgradeableProxy uses, to make the problem very obvious.
+
+Contract "spoiler.sol" can be run in Remix and shows how the implementation can be taken over.
+Expected output: "Deploying token: Token name / Token symbol"
+                 "The implementation has been taken over"
+

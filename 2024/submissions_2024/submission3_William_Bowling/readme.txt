@@ -1,0 +1,1 @@
+Welcome to Offchain Staking! Stake with us for guarenteed returns, everything is handled offchain with our secret sauce so you don't have to worry! Making use of the latest and greatest solidity features, our on-chain code is so simple it will never be hacked!

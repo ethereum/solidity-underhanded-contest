@@ -1,0 +1,5 @@
+The contract has a bug which allows the `multisig` storage variable to be overwritten, allowing the `emergencyWithdraw` function to be called by an attacker. The bug is a combination of two things
+* The `skipIfReentrant` modifier not execute the function if reentrancy is detected. 
+* https://github.com/ethereum/solidity/issues/14021 - This solidity bug allows an uninitialized storage pointer to be returned by assigning it to itself. 
+
+The `getUser` function has the `skipIfReentrant` modifier and passes in `user=user` as an argument, triggering the solidity issue instead of refusing to compile. If reentrancy is detected then the function body is never called and `user` remains uninitialized and will point to storage slot zero (the multisig). This can be abused by the `transferUser` function to overwrite the multisig storage slot instead of the `user.owner` by calling if from within the `userCreated` callback.
